@@ -17,8 +17,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id',function(req,res,next){
+  const id = req.parmas.id;
   db("users")
-    .where("id",req.params.id)
+    .where("id",id)
     .then((users)=>{
       res.render("users",{
         title: "User",
