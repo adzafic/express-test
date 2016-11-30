@@ -2,18 +2,16 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-h1 {
+h1{
   margin: 0;
   padding: 10px;
   width: 100%;
   background: gray;
 }
-
 a {
   color: red;
 }
 
-p {
-  color: red;
+p{
+  color:red;
 }

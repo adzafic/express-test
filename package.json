@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "./node_modules/.bin/nodemon ./bin/www"
+    "dev": "./node_modules/.bin/gulp nodemon",
+    "style": "./node_modules/.bin/gulp watch:styles"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -18,6 +19,11 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-postcss": "^6.2.0",
     "nodemon": "^1.11.0"
   }
 }
