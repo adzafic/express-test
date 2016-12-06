@@ -8,14 +8,14 @@ gulp.task('styles',function(){
   var processors = [
       autoprefixer
     ];
-  return gulp.src('./styles/*.css')
+  return gulp.src('./src/styles/*.css')
   .pipe(postcss(processors))
     .pipe(concatCss("style.css"))
     .pipe(gulp.dest('./public/stylesheets'));
 });
 
 gulp.task('watch:styles',function(){
-  gulp.watch('./styles/*.css',['styles']);
+  gulp.watch('./src/styles/*.css',['styles']);
 });
 
 gulp.task('nodemon', function () {
