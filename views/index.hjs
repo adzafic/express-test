@@ -3,9 +3,26 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <header>
+      <h1 class="site-title">{{ title }}</h1>
+      <i class="fa fa-bars nav-toggle"></i>
+    </header>
+    <div class="wrapper">
+      <nav class="main-navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users">Usuarios</a></li>
+          <li><a href="/mail">Mail</a></li>
+        </ul>
+      </nav>
+      <div class="app">
+        <h1>hola mundo</h1>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/common.js"></script>
   </body>
 </html>
