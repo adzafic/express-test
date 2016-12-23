@@ -1,13 +1,20 @@
+//librerias
+var bodyParser = require('body-parser');;
+var cookieParser = require('cookie-parser');
 var express = require('express');
-var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
+var path = require('path');
+var passport = require('passport');
+var session = require('express-session')
+var config = require('./config/config');
+var RedisStore = require('connect-redis')(session);
+require('./config/passport');
+// routes
 var index = require('./routes/index');
-var users = require('./routes/users');
+var login = require('./routes/login');
 var mail = require('./routes/mail.js');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -17,6 +24,16 @@ app.set('view engine', 'hjs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(session({
+  store: new RedisStore({
+    host:config.HOST
+  }),
+  secret: 'proyecto de prueba',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/mail', mail);
+app.use('/',login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
